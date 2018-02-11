@@ -14,7 +14,7 @@ class WishlistsController < ApplicationController
   def create
     @user = User.find_by(id: params[:user_id])
     @wishlist = Wishlist.new(wishlist_params)
-    @wishlist.user
+    @wishlist.user = @user
     if @wishlist.save
       redirect_to user_wishlist_path(@user, @wishlist)
     else
