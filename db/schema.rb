@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180211023658) do
+ActiveRecord::Schema.define(version: 20180211030117) do
 
   create_table "colors", force: :cascade do |t|
     t.string   "name"
     t.string   "background"
     t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "price"
+    t.string   "url"
+    t.string   "image_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,6 +36,14 @@ ActiveRecord::Schema.define(version: 20180211023658) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "wishlists", force: :cascade do |t|
+    t.string   "name"
+    t.date     "date_created", default: '2018-02-10'
+    t.integer  "user_id"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
 end
