@@ -7,9 +7,19 @@ class WishlistsController < ApplicationController
   end
 
   def new
+    @user = User.find_by(id: params[:user_id])
+    @wishlist = Wishlist.new
   end
 
   def create
+    @user = User.find_by(id: params[:user_id])
+    @wishlist = Wishlist.new(wishlist_params)
+    @wishlist.user
+    if @wishlist.save
+      redirect_to user_wishlist_path(@user, @wishlist)
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -17,9 +27,16 @@ class WishlistsController < ApplicationController
   end
 
   def edit
+    @user = User.find_by(id: params[:user_id])
+    @wishlist = Wishlist.find_by(id: params[:id])
   end
 
   def update
   end
   
+  private
+
+  def wishlist_params
+    params.require(:wishlist).permit(:name, :user_id)
+  end
 end
