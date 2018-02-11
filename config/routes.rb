@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :user
+  resources :users
+  resources :colors
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
