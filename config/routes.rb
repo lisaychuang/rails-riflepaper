@@ -4,9 +4,14 @@ Rails.application.routes.draw do
     resources :wishlists
   end
 
+  resources :sessions
   resources :products
   resources :colors
 
+  # Welcome page upon starting up the app
+  root to: 'sessions#welcome'
+
+  # Signup page
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
