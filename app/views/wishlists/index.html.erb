@@ -1,1 +1,7 @@
-<h1>Users' wishlists</h1>
+<h1><%= @user.name%>'s wishlists</h1>
+
+<ol>
+    <% @user_wishlists.each do |wishlist| %>
+        <li><%= link_to("#{wishlist.name}", user_wishlist_path(@user, wishlist)) %></li>
+    <% end %>
+</ol>
