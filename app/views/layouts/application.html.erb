@@ -10,14 +10,22 @@
 
 <!--  navbar -->
   <div>
-      <a href="<%= root_url %>"/>Home</a>
-      
-      <% if current_user %>
-        <%= link_to("Log Out", logout_path) %>
-      <%else %>
-        <%= link_to("Sign Up", signup_path) %>
-        <%= link_to("Log In", login_path) %>
-      <% end %>
+    <a href="<%= root_url %>"/>Home</a>
+    
+    <% if current_user %>
+      <%= link_to("Log Out", logout_path) %>
+    <%else %>
+      <%= link_to("Sign Up", signup_path) %>
+      <%= link_to("Log In", login_path) %>
+    <% end %>
+  </div>
+<hr>
+
+<%# Flash messages %>
+  <div>
+    <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+    <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+    <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
   </div>
 
 <%= yield %>
