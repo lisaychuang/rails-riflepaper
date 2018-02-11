@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :users
+  resources :products
   resources :colors
 
   get '/signup' => 'users#new'
