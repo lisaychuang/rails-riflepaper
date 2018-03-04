@@ -1,3 +1,5 @@
+require 'pry'
+
 class WishlistsController < ApplicationController
   before_filter :authorize
   
@@ -26,17 +28,24 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.find_by(id: params[:id])
   end
 
-  def edit
-    @user = User.find_by(id: params[:user_id])
-    @wishlist = Wishlist.find_by(id: params[:id])
-  end
+  # def edit
+  #   @wishlist = Wishlist.find_by(id: params[:id])
+  #   @user = User.find_by_id(@wishlist.user_id)
+  # end
 
-  def update
-  end
+  # def update
+  #   @wishlist = Wishlist.find_by(id: params[:id])
+  #   @user = User.find_by_id(@wishlist.user_id)
+  #     if @wishlist.update(wishlist_params)
+  #       redirect_to user_wishlist_path(@user, @wishlist)
+  #     else
+  #         redirect_to edit_user_wishlist_path(@user, @wishlist)
+  #     end
+  # end
   
   private
 
   def wishlist_params
-    params.require(:wishlist).permit(:name, :user_id)
+    params.require(:wishlist).permit(:name)
   end
 end
