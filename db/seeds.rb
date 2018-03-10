@@ -41,11 +41,12 @@ def make_products
       product.each_with_index do |attribute, i|
         new_product.send(DATA[:products_keys][i] + "=", attribute)
       end
-      new_product.save
 
       # Set product's category
       new_product.category = category
-    end
+
+      new_product.save
+  end
 end
 
 make_categories

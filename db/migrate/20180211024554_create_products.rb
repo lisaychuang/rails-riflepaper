@@ -5,6 +5,8 @@ class CreateProducts < ActiveRecord::Migration
       t.float :price
       t.string :url
       t.string :image_link
+      t.integer :wishlist_id
+      t.integer :category_id
 
       t.timestamps null: false
     end

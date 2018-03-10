@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 20180304233354) do
     t.float    "price"
     t.string   "url"
     t.string   "image_link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "wishlist_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

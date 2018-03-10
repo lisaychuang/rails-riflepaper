@@ -35,7 +35,7 @@ class Scraper
   end
 
   def get_all_products
-    categories = get_categories().take(1)
+    categories = get_categories()
     products = categories.map do |cat|
       cat_url = cat[1]
       cat_products = get_products(cat_url)
