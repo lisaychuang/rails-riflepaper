@@ -1,0 +1,7 @@
+<h1>All products</h1>
+
+<% @products.each do |p|%>
+     <a href="<%=p.url%>"><%= p.name %></a><br>
+     Price: $<%= "#{'%.2f' % p.price }" %><br>
+     <img src="<%=p.image_link%>"><br>
+<% end %>
