@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+require 'pry'
 require './lib/scraper'
 
 SCRAPER = Scraper.new
@@ -33,11 +33,18 @@ end
 
 def make_products
     DATA[:products].each do |product|
+      # Find Category using product's category_url, then remove category_url
+      category = Category.find_by(link: product[4])
+      product.pop
+
       new_product = Product.new
       product.each_with_index do |attribute, i|
         new_product.send(DATA[:products_keys][i] + "=", attribute)
       end
       new_product.save
+
+      # Set product's category
+      new_product.category = category
     end
 end
 

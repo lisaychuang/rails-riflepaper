@@ -1,5 +1,4 @@
 class Product < ActiveRecord::Base
     belongs_to :wishlist
-    has_many :colors
-    has_many :categories
+    belongs_to :category
 end

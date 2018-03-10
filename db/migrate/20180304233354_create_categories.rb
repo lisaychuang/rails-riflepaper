@@ -4,7 +4,6 @@ class CreateCategories < ActiveRecord::Migration
       t.string :name
       t.string :link
       t.string :img_url
-      t.integer :product_id
     end
   end
 end

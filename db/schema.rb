@@ -14,18 +14,9 @@
 ActiveRecord::Schema.define(version: 20180304233354) do
 
   create_table "categories", force: :cascade do |t|
-    t.string  "name"
-    t.string  "link"
-    t.string  "img_url"
-    t.integer "product_id"
-  end
-
-  create_table "colors", force: :cascade do |t|
-    t.string   "name"
-    t.string   "background"
-    t.integer  "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "link"
+    t.string "img_url"
   end
 
   create_table "products", force: :cascade do |t|

@@ -29,13 +29,13 @@ class Scraper
       price = product.css('em')[0].children.text.strip
       normalized_price = normalize_price(price)
 
-      # [name, price, url, image_link]
-      ["#{normalized_name}", normalized_price, "#{product.css('h4 a')[0]['href']}", "#{product.css('a>img')[0].attributes['src'].value}"]
+      # [name, price, url, image_link, category_url]
+      ["#{normalized_name}", normalized_price, "#{product.css('h4 a')[0]['href']}", "#{product.css('a>img')[0].attributes['src'].value}", url_str]
     end
   end
 
   def get_all_products
-    categories = get_categories()
+    categories = get_categories().take(1)
     products = categories.map do |cat|
       cat_url = cat[1]
       cat_products = get_products(cat_url)
