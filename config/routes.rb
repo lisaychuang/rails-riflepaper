@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
-  resources :products
+  resources :products do
+    collection do
+      get 'free_shipping'
+    end
+  end
+
   resources :colors
 
   # Welcome page upon starting up the app

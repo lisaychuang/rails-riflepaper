@@ -14,4 +14,9 @@ class ProductsController < ApplicationController
 
     def edit
     end
+
+    def free_shipping
+        @products = Product.free_shipping
+        render 'free_shipping'
+    end
 end

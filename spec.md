@@ -18,7 +18,7 @@ Specs:
 - [ ] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)
 - [x] Include nested resource show or index (users/2/wishlists)
 - [x] Include nested resource "new" form (users/2/wishlists)
-- [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
+- [x] Include a class level ActiveRecord scope method (Product.free_shipping,  URL: /products/free_shipping)
 
 ## User authentication 
 - [x] Include signup (Using Bcrypt)
