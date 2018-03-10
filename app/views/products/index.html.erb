@@ -1,7 +1,7 @@
 <h1>All products</h1>
 
 <% @products.each do |p|%>
-     <a href="<%=p.url%>"><%= p.name %></a> - <%=p.category.name%><br>
+     <%= link_to("#{p.name}", product_path(p)) %> - <%=p.category.name%><br>
      Price: $<%= "#{'%.2f' % p.price }" %><br>
      <img src="<%=p.image_link%>"><br>
 <% end %>
