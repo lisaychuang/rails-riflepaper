@@ -26,8 +26,11 @@ class Scraper
       name = product.css('h4 a').text.strip
       normalized_name = part_before_tab(name)
 
+      price = product.css('em')[0].children.text.strip
+      normalized_price = normalize_price(price)
+
       # [name, price, url, image_link]
-      ["#{normalized_name}", "#{product.css('em')[0].children.text.strip}", "#{product.css('h4 a')[0]['href']}", "#{product.css('a>img')[0].attributes['src'].value}"]
+      ["#{normalized_name}", normalized_price, "#{product.css('h4 a')[0]['href']}", "#{product.css('a>img')[0].attributes['src'].value}"]
     end
   end
 
@@ -44,6 +47,12 @@ class Scraper
   private
   def part_before_tab(str)
     str.split("\t")[0] 
+  end
+
+  # Use this Ruby Format method to display price to 2 decimal point 
+  # <%= "#{'%.2f' % product.price }" %>  instead of <%= product.price %>
+  def normalize_price(str)
+    str.gsub("$","").to_f
   end
 
 end

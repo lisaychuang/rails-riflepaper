@@ -31,4 +31,15 @@ def make_categories
   end
 end
 
+def make_products
+    DATA[:products].each do |product|
+      new_product = Product.new
+      product.each_with_index do |attribute, i|
+        new_product.send(DATA[:products_keys][i] + "=", attribute)
+      end
+      new_product.save
+    end
+end
+
 make_categories
+make_products

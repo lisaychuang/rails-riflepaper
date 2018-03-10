@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180304233354) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
-    t.decimal  "price"
+    t.float    "price"
     t.string   "url"
     t.string   "image_link"
     t.datetime "created_at", null: false
