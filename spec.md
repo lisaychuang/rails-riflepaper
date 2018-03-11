@@ -4,8 +4,8 @@ Specs:
 - [x] Using Ruby on Rails for the project
 
 ## Associations
-- [x] Include at least one has_many relationship (Product has_many colors) 
-- [x] Include at least one belongs_to relationship (Color belongs_to Product)
+- [x] Include at least one has_many relationship (Category has_many Products) 
+- [x] Include at least one belongs_to relationship (Product belongs_to Category)
 - [x] Include at least one has_many through relationship (User has_many products through wishlists)
 - [ ] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
 
