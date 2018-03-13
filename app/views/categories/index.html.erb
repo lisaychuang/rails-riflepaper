@@ -1,2 +1,14 @@
-<h1>Categories#index</h1>
-<p>Find me in app/views/categories/index.html.erb</p>
+<h1>Categories</h1>
+
+<div>
+    <ol>
+        <% @categories.each do |category| %>
+            <li><%= link_to("#{category.name}", category_path(category)) %></li>
+            <img src="<%=category.img_url%>"><br>
+        <% end %>
+    </ol>
+</div>
+
+<div>
+    <%= link_to("Create a new Category", new_category_path) %>
+</div>
