@@ -1,2 +1,30 @@
-<h1>Categories#new</h1>
-<p>Find me in app/views/categories/new.html.erb</p>
+<h1>Create a new category</h1>
+
+<%= form_for @category do |f| %>
+  <%= f.label :category_name %>
+  <%= f.text_field :name %><br>
+  
+  <%= f.label :link %>
+  <%= f.text_field :link %><br>
+  
+  <%= f.label :image_link %>
+  <%= f.text_field :img_url %><br><br>
+ 
+  <h3>New product</h3>
+  <%= f.fields_for :products do |p| %>
+    <%= p.label :product_name %>
+    <%= p.text_field :name %><br>
+ 
+    <%= p.label :price %>
+    <%= p.number_field :price, value: number_to_currency(p.object.price.to_f, delimiter: '', unit: ''), step: :any %><br>
+
+    <%= p.label :link %>
+    <%= p.text_field :url %><br>
+
+    <%= p.label :image_link %>
+    <%= p.text_field :image_link %><br>
+ 
+  <% end %>
+ 
+  <%= f.submit %>
+<% end %>
