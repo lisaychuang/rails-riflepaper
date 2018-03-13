@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :colors
+  resources :categories
 
   # Welcome page upon starting up the app
   root to: 'sessions#welcome'
