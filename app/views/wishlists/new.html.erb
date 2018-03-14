@@ -1,3 +1,19 @@
+<%# Display validation errors in form %>
+<% if @wishlist.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@wishlist.errors.count, "error") %>
+      prohibited this user from being saved:
+    </h2>
+ 
+    <ul>
+    <% @wishlist.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h1>Create a new wishlist</h1>
 
 <%= render partial: "form", locals: {user: @user, wishlist: @wishlist} %>

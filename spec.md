@@ -11,7 +11,7 @@ Specs:
 
 ## Validation
 - [x] Include reasonable validations for simple model objects
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include form display of validation errors (for all create action)
 
 
 ## Nested resources
