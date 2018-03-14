@@ -28,24 +28,24 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.find_by(id: params[:id])
   end
 
-  # def edit
-  #   @wishlist = Wishlist.find_by(id: params[:id])
-  #   @user = User.find_by_id(@wishlist.user_id)
-  # end
+  def edit
+    @wishlist = Wishlist.find_by(id: params[:id])
+    @user = User.find_by_id(@wishlist.user_id)
+  end
 
-  # def update
-  #   @wishlist = Wishlist.find_by(id: params[:id])
-  #   @user = User.find_by_id(@wishlist.user_id)
-  #     if @wishlist.update(wishlist_params)
-  #       redirect_to user_wishlist_path(@user, @wishlist)
-  #     else
-  #         redirect_to edit_user_wishlist_path(@user, @wishlist)
-  #     end
-  # end
+  def update
+    @wishlist = Wishlist.find_by(id: params[:id])
+    @user = User.find_by_id(@wishlist.user_id)
+      if @wishlist.update(wishlist_params)
+        redirect_to user_wishlist_path(@user, @wishlist)
+      else
+          redirect_to edit_user_wishlist_path(@user, @wishlist)
+      end
+  end
   
   private
 
   def wishlist_params
-    params.require(:wishlist).permit(:name)
+    params.require(:wishlist).permit(:name, :notes, :budget)
   end
 end
