@@ -1,2 +1,30 @@
-<h1>Categories#edit</h1>
-<p>Find me in app/views/categories/edit.html.erb</p>
+<%# Display validation errors in form %>
+<% if @category.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@category.errors.count, "error") %>
+      prohibited this category from being saved:
+    </h2>
+ 
+    <ul>
+    <% @category.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h1>Edit categories</h1>
+
+<%= form_for @category do |f| %>
+  <%= f.label :category_name %>
+  <%= f.text_field :name %><br>
+  
+  <%= f.label :link %>
+  <%= f.text_field :link %><br>
+  
+  <%= f.label :image_link %>
+  <%= f.text_field :img_url %><br><br>
+ 
+  <%= f.submit %>
+<% end %>

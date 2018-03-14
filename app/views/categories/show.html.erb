@@ -6,3 +6,8 @@
     <% end %>
 
 </ul>
+
+<%= link_to("Edit category", edit_category_path(@category)) %><br><br>
+
+<%= link_to "delete", @category, method: :delete,
+                                  data: { confirm: "Are you sure?" } %>

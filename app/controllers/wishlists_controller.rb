@@ -43,6 +43,12 @@ class WishlistsController < ApplicationController
           render 'edit'
       end
   end
+
+  def destroy
+    Wishlist.find(params[:id]).destroy
+    flash[:success] = "Wishlist deleted"
+    redirect_to user_wishlists(@current_user)
+  end
   
   private
 

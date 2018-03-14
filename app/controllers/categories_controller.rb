@@ -18,11 +18,27 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def show
     @category = Category.find_by(id: params[:id])
+  end
+
+  def edit
+    @category = Category.find_by(id: params[:id])
+  end
+
+  def update
+    @category = Category.find_by(id: params[:id])
+    if @category.update(category_params)
+      redirect_to @category
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    Category.find(params[:id]).destroy
+    flash[:success] = "Category deleted"
+    redirect_to categories_url
   end
 
   private

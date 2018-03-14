@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to @product
     else
-      redirect_to edit_product_path(@product)
+      render 'edit'
     end
   end
 
@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
 
   def destroy
     Product.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "Product deleted"
     redirect_to products_url
   end
 
