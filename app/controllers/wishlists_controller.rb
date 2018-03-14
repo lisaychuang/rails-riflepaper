@@ -25,6 +25,7 @@ class WishlistsController < ApplicationController
   end
 
   def show
+    @user = User.find_by(id: params[:user_id])
     @wishlist = Wishlist.find_by(id: params[:id])
   end
 
@@ -39,7 +40,7 @@ class WishlistsController < ApplicationController
       if @wishlist.update(wishlist_params)
         redirect_to user_wishlist_path(@user, @wishlist)
       else
-          redirect_to edit_user_wishlist_path(@user, @wishlist)
+          render 'edit'
       end
   end
   
