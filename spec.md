@@ -7,7 +7,7 @@ Specs:
 - [x] Include at least one has_many relationship (Category has_many Products) 
 - [x] Include at least one belongs_to relationship (Product belongs_to Category)
 - [x] Include at least one has_many through relationship (User has_many products through wishlists)
-- [ ] The "through" part of the has_many through includes at least one user submittable attribute (Edit/ Delete product)
+- [x] The "through" part of the has_many through includes at least one user submittable attribute (Edit/ Delete product)
 
 ## Validation
 - [x] Include reasonable validations for simple model objects
