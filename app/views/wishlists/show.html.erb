@@ -6,7 +6,9 @@
 
 <p>Notes: <%= @wishlist.notes%></p>
 
+<% if display_edit_delete_link %>
 <%= link_to("Edit wishlist", edit_user_wishlist_path(@user, @wishlist)) %><br><br>
 
 <%= link_to "delete", [@user, @wishlist], method: :delete,
                                   data: { confirm: "Are you sure?" } %>
+<%end%>
