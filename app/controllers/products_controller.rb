@@ -10,8 +10,8 @@ class ProductsController < ApplicationController
     end
 
     def create
-        product = Product.create(product_params)
-        redirect_to product_path
+        @product = Product.create(product_params)
+        redirect_to @product
       end
 
     def show
@@ -19,7 +19,17 @@ class ProductsController < ApplicationController
     end
 
     def edit
+        @product = Product.find_by(id: params[:id])
     end
+
+    def update
+        @product = Product.find_by(id: params[:id])
+          if @product.update(product_params)
+            redirect_to @product
+          else
+              redirect_to edit_product_path(@product)
+          end
+      end
 
     def free_shipping
         @products = Product.free_shipping
@@ -29,6 +39,6 @@ class ProductsController < ApplicationController
     private
 
   def product_params
-    params.require(:product).permit(:name, :price, :link, :image_link)
+    params.require(:product).permit(:name, :price, :url, :image_link)
   end
 end
