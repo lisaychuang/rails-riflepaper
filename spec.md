@@ -7,7 +7,7 @@ Specs:
 - [x] Include at least one has_many relationship (Category has_many Products) 
 - [x] Include at least one belongs_to relationship (Product belongs_to Category)
 - [x] Include at least one has_many through relationship (User has_many products through wishlists)
-- [ ] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
+- [ ] The "through" part of the has_many through includes at least one user submittable attribute (Edit/ Delete product)
 
 ## Validation
 - [x] Include reasonable validations for simple model objects
@@ -15,7 +15,7 @@ Specs:
 
 
 ## Nested resources
-- [ ] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)
+- [x] Include a nested form writing to an associated model using a custom attribute writer (categories/new enable creation of Products)
 - [x] Include nested resource show or index (users/2/wishlists)
 - [x] Include nested resource "new" form (users/2/wishlists)
 - [x] Include a class level ActiveRecord scope method (Product.free_shipping,  URL: /products/free_shipping)
