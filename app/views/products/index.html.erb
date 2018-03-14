@@ -1,3 +1,7 @@
 <h1>All products</h1>
+<div>
+    <%= page_entries_info @products %><br><br>
+    <%= paginate @products, window: 2 %><br>
+</div>
 
 <%= render partial: "products", locals: {products: @products} %>

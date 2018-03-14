@@ -29,6 +29,9 @@ gem 'nokogiri'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Use Kaminari gem to paginate products page
+gem 'kaminari'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

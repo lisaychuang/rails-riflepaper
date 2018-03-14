@@ -5,4 +5,7 @@
 <img src="<%=@product.image_link%>"><br>
 
 
-<%= link_to("Edit product", edit_product_path(@product)) %>
+<%= link_to("Edit product", edit_product_path(@product)) %><br><br>
+
+<%= link_to "delete", @product, method: :delete,
+                                  data: { confirm: "Are you sure?" } %>
