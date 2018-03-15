@@ -2,7 +2,7 @@
 
 <p>Created on: <%= @wishlist.date_created%></p>
 
-<p>Budget: <%= @wishlist.budget%></p>
+<p>Budget: <%= number_to_currency(@wishlist.budget)%></p>
 
 <p>Notes: <%= @wishlist.notes%></p>
 

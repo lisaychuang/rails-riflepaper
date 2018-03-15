@@ -1,12 +1,12 @@
 <h1>Categories</h1>
 
 <div>
-    <ol>
-        <% @categories.each do |category| %>
-            <li><%= link_to("#{category.name}", category_path(category)) %></li>
+    <% @categories.each do |category| %>
+        <div>
+            <%= link_to("#{category.name}", category_path(category)) %><br>
             <img src="<%=category.img_url%>"><br>
-        <% end %>
-    </ol>
+        </div>
+    <% end %>
 </div>
 
 <div>

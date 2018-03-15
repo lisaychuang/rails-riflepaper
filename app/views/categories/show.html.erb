@@ -1,11 +1,14 @@
 <h1>Category: <%= @category.name %></h1>
 
-<ul>
-    <% @category.products.each do |product| %>
-        <li><%= product.name%></li>
-    <% end %>
-
-</ul>
+<div>
+    <div>
+        <% @category.products.each do |product| %>
+            <%= link_to("#{product.name}", product_path(product)) %> - <%=product.category.name%><br>
+            Price: $<%= "#{'%.2f' % product.price }" %><br>
+            <img src="<%=product.image_link%>"><br>
+        <% end %>
+    </div>
+</div>
 
 <%= link_to("Edit category", edit_category_path(@category)) %><br><br>
 
