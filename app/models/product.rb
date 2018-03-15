@@ -9,4 +9,5 @@ class Product < ActiveRecord::Base
 
   #Scope methods
   scope :free_shipping, -> { where('price >= ?', 50.0)}
+  scope :sort_by_price, -> { order("price ASC")}
 end

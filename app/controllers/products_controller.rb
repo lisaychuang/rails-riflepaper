@@ -37,8 +37,13 @@ class ProductsController < ApplicationController
   end
 
   def free_shipping
-    @products = Product.free_shipping
+    @products = Product.free_shipping.page(params[:page])
     render 'free_shipping'
+  end
+
+  def sort_by_price
+    @products = Product.sort_by_price.page(params[:page])
+    render 'sort_by_price'
   end
 
   def destroy

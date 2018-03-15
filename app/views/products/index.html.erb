@@ -4,8 +4,7 @@
 </div>
 
 <div>
-    <%= page_entries_info @products %><br><br>
-    <%= paginate @products, window: 2 %><br>
+    <%= link_to("Products sorted by price", sort_by_price_products_path) %><br><br>
 </div>
 
 <div class="products-container">

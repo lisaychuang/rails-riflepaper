@@ -1,3 +1,8 @@
+<div>
+    <%= page_entries_info @products %><br><br>
+    <%= paginate @products, window: 2 %><br>
+</div>
+
 <% products.each do |p|%>
     <div class="product-square">
         <h4><%= link_to("#{p.name}", product_path(p)) %></h4>

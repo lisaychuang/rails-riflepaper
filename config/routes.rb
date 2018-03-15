@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :products do
     collection do
       get 'free_shipping'
+      get 'sort_by_price'
     end
   end
 
