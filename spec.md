@@ -24,7 +24,7 @@ Specs:
 - [x] Include signup (Using Bcrypt)
 - [x] Include login (Using Bcrypt)
 - [x] Include logout (Using Bcrypt)
-- [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
+- [x] Include third party signup/login (Using OmniAuth-facebook to enable facebook login)
 
 Confirm:
 - [x] The application is pretty DRY
