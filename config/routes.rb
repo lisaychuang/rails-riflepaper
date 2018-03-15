@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   resources :users do
     resources :wishlists
   end
@@ -24,6 +23,9 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+
+  # Omniauth Facebook login
+  get '/auth/facebook/callback' => 'sessions#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

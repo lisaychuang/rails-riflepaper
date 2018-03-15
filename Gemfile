@@ -32,11 +32,10 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Kaminari gem to paginate products page
 gem 'kaminari'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# OmniAuth for third party login
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
