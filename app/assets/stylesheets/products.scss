@@ -1,3 +1,24 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.products-container{
+    width: 80%
+}
+
+.product-square {
+    float: left;
+    width: 22%;
+    padding: 0 12px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.product-image {
+    width: 216px;
+    height: auto;
+}
+
+span {
+    color: grey;
+}

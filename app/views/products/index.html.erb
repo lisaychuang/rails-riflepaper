@@ -1,9 +1,13 @@
 <h1>All products</h1>
 <div>
+    <%= link_to("Products qualified for Free Shipping (> $50)", free_shipping_products_path) %><br><br>
+</div>
+
+<div>
     <%= page_entries_info @products %><br><br>
     <%= paginate @products, window: 2 %><br>
 </div>
 
-<div>
+<div class="products-container">
     <%= render partial: "products", locals: {products: @products} %>
 </div>
