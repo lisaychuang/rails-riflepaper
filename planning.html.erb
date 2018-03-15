@@ -1,0 +1,27 @@
+Planning doc for Add to Wishlist feature
+
+PART 1
+Select a wishlist
+//   http://localhost:3000/products?list=foo
+
+
+
+
+PART 2 - Don't worry about list_operation yet. Buttons should pass product id and wish list
+PART 3 - Change button and list_operation depending on whether product is already in list
+{{#each product}}
+
+<form>
+   <input type="hidden" name="product_id" value=<%= product.id %> />
+   <input type="hidden" name="list_id" value=<%= @current_user_wishlist_id %> />
+{{#if productAlreadyInList('foo')}}
+   <input type="hidden" name="list_operation" value="remove" />
+   <input type="submit">Remove from list</button>
+{{else}}
+   <input type="hidden" name="list_operation" value="add" />
+   <input type="submit">Add to list</button>
+{{/if}}
+</form>
+
+
+{{/each}}

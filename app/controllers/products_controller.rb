@@ -2,7 +2,15 @@ class ProductsController < ApplicationController
   before_filter :authorize
 
   def index
-    @products = Product.order(name: :asc).page(params[:page])
+    @user = User.find_by(id: session[:user_id])
+    @user_wishlists = @user.wishlists
+    @current_user_wishlist_id = params[:wishlist_id]
+
+    @sort_param = params[:sort_by]
+
+    # Use private method sort_by to filter list of products displayed
+    @products = sort_by(@sort_param)
+    
   end
 
   def new
@@ -56,5 +64,17 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :price, :url, :image_link)
+  end
+
+  def sort_by(sort_param)
+    if sort_param === "name"
+      Product.order(name: :asc).page(params[:page])
+    elsif sort_param === "price"
+      Product.sort_by_price.page(params[:page])
+    elsif sort_param === "freeship"
+      Product.free_shipping.page(params[:page])
+    else
+      Product.order(name: :asc).page(params[:page])
+    end
   end
 end

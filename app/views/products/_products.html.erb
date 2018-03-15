@@ -3,8 +3,34 @@
     <%= paginate @products, window: 2 %><br>
 </div>
 
+<%# A dropdown list of current_user's wishlist %>
+<%# A submit button that will pass the selected Wishlist_id into URL query params %>
+<%= form_tag(products_url, {:method => 'get'}) do |f| %>
+    <select name="wishlist_id" id="wishlist_id">
+        <% @user_wishlists.each do |w| %>
+            <option value="<%=w.id %>" <%= "#{w.id}" === @current_user_wishlist_id ? "selected" : "" %>><%=w.name%></option>
+        <% end %>
+    </select>
+
+    <%= submit_tag('Select wishlist', :name => nil) %>
+<% end %>
+
+<%# A drop down list for sorting - by price, name, free shipping %>
+<%= form_tag(products_url, {:method => 'get'}) do |f| %>
+    <select name="sort_by" id="sort_by">
+        <option value="name" <%= "name" === @sort_param ? "selected" : "" %>>Name</option>
+        <option value="price" <%= "price" === @sort_param ? "selected" : "" %>>Price</option>
+        <option value="freeship" <%= "freeship" === @sort_param ? "selected" : "" %>>Free Shipping</option>
+    </select>
+
+    <%= submit_tag('Sort by', :name => nil) %>
+<% end %>
+
 <% products.each do |p|%>
     <div class="product-square">
+        
+        <%# Create Submit Button for each product, passing product.id %>
+
         <h4><%= link_to("#{p.name}", product_path(p)) %></h4>
         <span><%=p.category.name.upcase%></span>
 
@@ -12,3 +38,4 @@
         <img class="product-image" src="<%=p.image_link%>"><br>
     </div>
 <% end %>
+
