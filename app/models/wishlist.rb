@@ -20,6 +20,6 @@ class Wishlist < ActiveRecord::Base
   end
 
   def has_product?(product)
-    self.products.include?(product)
+    product.wishlist_id == self.id
   end
 end

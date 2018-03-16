@@ -68,14 +68,15 @@ class ProductsController < ApplicationController
   end
 
   def sort_by(sort_param)
+    prod = Product.includes(:category)
     if sort_param === "name"
-      Product.order(name: :asc).page(params[:page])
+      prod.order(name: :asc).page(params[:page])
     elsif sort_param === "price"
-      Product.sort_by_price.page(params[:page])
+      prod.sort_by_price.page(params[:page])
     elsif sort_param === "freeship"
-      Product.free_shipping.page(params[:page])
+      prod.free_shipping.page(params[:page])
     else
-      Product.order(name: :asc).page(params[:page])
+      prod.order(name: :asc).page(params[:page])
     end
   end
 end
