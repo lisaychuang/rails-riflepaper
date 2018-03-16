@@ -8,6 +8,18 @@ class Wishlist < ActiveRecord::Base
                    length: {maximum: 80,
                             too_long: "80 characters is the maximum allowed"}
   validates :notes, length: {maximum: 500,
-                            too_long: "500 characters is the maximum allowed"},
+                             too_long: "500 characters is the maximum allowed"},
                     allow_blank: true
+
+  def toggle_product(product)
+    if has_product?(product)
+      self.products.delete(product)
+    else
+      self.products.push(product)
+    end
+  end
+
+  def has_product?(product)
+    self.products.include?(product)
+  end
 end

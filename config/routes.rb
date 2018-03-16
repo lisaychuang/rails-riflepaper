@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  post '/wishlists/:id/toggle_product' => 'wishlists#toggle_product', as: :toggle_wishlist_product
+
   resources :users do
     resources :wishlists
   end

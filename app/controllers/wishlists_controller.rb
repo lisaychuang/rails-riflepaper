@@ -49,6 +49,12 @@ class WishlistsController < ApplicationController
     flash[:success] = "Wishlist deleted"
     redirect_to user_wishlists(@current_user)
   end
+
+  def toggle_product
+    @wishlist = Wishlist.find_by_id(params[:wishlist_id])
+    @wishlist.toggle_product(Product.find_by_id(params[:product_id]))
+    redirect_to products_path(:wishlist_id => @wishlist.id)
+  end
   
   private
 

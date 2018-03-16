@@ -20,18 +20,19 @@
     <% end %>
 </div>
 
-<!-- A dropdown list of current_user's wishlist -->
-<!-- A submit button that will pass the selected Wishlist_id into URL query params -->
+<!-- A dropdown list of current_user's wishlist 
+A submit button that will pass the selected Wishlist_id into URL query params -->
+
 <div class="select-wishlist">
     <h3>Choose your wishlist</h3>
     <%= form_tag(products_url, {:method => 'get'}) do |f| %>
         <select name="wishlist_id" id="wishlist_id">
 
             <!-- Select a Wishlist -->
-            <option value="" <%= !@current_user_wishlist_id ? "selected" : "" %>>SELECT A WISHLIST</option>
+            <option value="" <%= !@wishlist ? "selected" : "" %>>SELECT A WISHLIST</option>
 
             <% @user_wishlists.each do |w| %>
-                <option value="<%=w.id %>" <%= "#{w.id}" === @current_user_wishlist_id ? "selected" : "" %>><%=w.name%></option>
+                <option value="<%=w.id %>" <%= "#{w.id}" === @wishlist ? "selected" : "" %>><%=w.name%></option>
             <% end %>
         </select>
 
@@ -39,16 +40,19 @@
     <% end %>
 </div>
 
+<!-- Product squares -->
+
 <% products.each do |p|%>
     <div class="product-square">
-        <!-- Create Submit Button for each product, passing product.id -->
-        <% if @current_user_wishlist_id%>
-            <%= form_for(p) do |f| %>
-                <%= f.hidden_field :wishlist_id, :value => @current_user_wishlist_id %> <br>
-                <!-- If the item is not in the list....l -->
-                <%= f.hidden_field :list_operation, :value => "add" %> <br>
-                <%= button_tag("Add to #{Wishlist.find_by_id(@current_user_wishlist_id).name} wishlist", :name => nil) %>
-                <!-- If it's already in the list, change list_operation to "remove" and update button label accordingly -->
+        <!-- If user has selected a wishlist, show Add/ Remove button -->
+        <% if @wishlist%>
+        
+            <%= form_tag(toggle_wishlist_product_url(@user, @wishlist), remote: true) do |f| %>
+                <%= hidden_field_tag :wishlist_id, @wishlist.id %>
+                <%= hidden_field_tag :product_id, p.id %> 
+                
+                <!-- Button: Add or Remove item from list -->
+                <%= button_tag(@wishlist.has_product?(p)? "Remove from wishlist" : "Add to wishlist")%>
             <% end %>
         <% end %>
         
