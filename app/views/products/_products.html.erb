@@ -1,36 +1,57 @@
-<div>
+<!-- Pagination menu -->
+<div class="paginate">
     <%= page_entries_info @products %><br><br>
     <%= paginate @products, window: 2 %><br>
 </div>
 
-<%# A dropdown list of current_user's wishlist %>
-<%# A submit button that will pass the selected Wishlist_id into URL query params %>
-<%= form_tag(products_url, {:method => 'get'}) do |f| %>
-    <select name="wishlist_id" id="wishlist_id">
-        <% @user_wishlists.each do |w| %>
-            <option value="<%=w.id %>" <%= "#{w.id}" === @current_user_wishlist_id ? "selected" : "" %>><%=w.name%></option>
-        <% end %>
-    </select>
+<!-- A drop down list for sorting - by price, name, free shipping -->
+<div class="sort-filter">
+    <%= form_tag(products_url, {:method => 'get'}) do |f| %>
+        <select name="sort_by" id="sort_by">
+            <!-- Sort By -->
+            <option <%= !@sort_param ? "selected" : "" %>>SORT BY</option>
 
-    <%= submit_tag('Select wishlist', :name => nil) %>
-<% end %>
+            <option value="name" <%= "name" === @sort_param ? "selected" : "" %>>Name</option>
+            <option value="price" <%= "price" === @sort_param ? "selected" : "" %>>Price</option>
+            <option value="freeship" <%= "freeship" === @sort_param ? "selected" : "" %>>Free Shipping</option>
+        </select>
 
-<%# A drop down list for sorting - by price, name, free shipping %>
-<%= form_tag(products_url, {:method => 'get'}) do |f| %>
-    <select name="sort_by" id="sort_by">
-        <option value="name" <%= "name" === @sort_param ? "selected" : "" %>>Name</option>
-        <option value="price" <%= "price" === @sort_param ? "selected" : "" %>>Price</option>
-        <option value="freeship" <%= "freeship" === @sort_param ? "selected" : "" %>>Free Shipping</option>
-    </select>
+        <%= submit_tag('Update', :name => nil) %>
+    <% end %>
+</div>
 
-    <%= submit_tag('Sort by', :name => nil) %>
-<% end %>
+<!-- A dropdown list of current_user's wishlist -->
+<!-- A submit button that will pass the selected Wishlist_id into URL query params -->
+<div class="select-wishlist">
+    <h3>Choose your wishlist</h3>
+    <%= form_tag(products_url, {:method => 'get'}) do |f| %>
+        <select name="wishlist_id" id="wishlist_id">
+
+            <!-- Select a Wishlist -->
+            <option value="" <%= !@current_user_wishlist_id ? "selected" : "" %>>SELECT A WISHLIST</option>
+
+            <% @user_wishlists.each do |w| %>
+                <option value="<%=w.id %>" <%= "#{w.id}" === @current_user_wishlist_id ? "selected" : "" %>><%=w.name%></option>
+            <% end %>
+        </select>
+
+        <%= submit_tag('Update', :name => nil) %>
+    <% end %>
+</div>
 
 <% products.each do |p|%>
     <div class="product-square">
+        <!-- Create Submit Button for each product, passing product.id -->
+        <% if @current_user_wishlist_id%>
+            <%= form_for(p) do |f| %>
+                <%= f.hidden_field :wishlist_id, :value => @current_user_wishlist_id %> <br>
+                <!-- If the item is not in the list....l -->
+                <%= f.hidden_field :list_operation, :value => "add" %> <br>
+                <%= button_tag("Add to #{Wishlist.find_by_id(@current_user_wishlist_id).name} wishlist", :name => nil) %>
+                <!-- If it's already in the list, change list_operation to "remove" and update button label accordingly -->
+            <% end %>
+        <% end %>
         
-        <%# Create Submit Button for each product, passing product.id %>
-
         <h4><%= link_to("#{p.name}", product_path(p)) %></h4>
         <span><%=p.category.name.upcase%></span>
 
