@@ -9,21 +9,20 @@
 <body>
 
 <!--  navbar -->
-  <div>
-    <a href="<%= root_url %>"/>Home</a>
+  <header>
+    <a href="<%= root_url %>" class="button" />Home</a>
     
     <% if current_user %>
-      <%= link_to("All products", products_path) %>
-      <%= link_to("Product categories", categories_path) %>
-      <%= link_to("My wishlists", user_wishlists_path(current_user)) %>
-      <%= link_to("My profile", user_path(current_user)) %>
-      <%= link_to("Log Out", logout_path) %>
+      <%= link_to("All products", products_path, :class => "button") %>
+      <%= link_to("Product categories", categories_path, :class => "button") %>
+      <%= link_to("My wishlists", user_wishlists_path(current_user), :class => "button") %>
+      <%= link_to("My profile", user_path(current_user), :class => "button") %>
+      <%= link_to("Log Out", logout_path, :class => "button") %>
     <%else %>
-      <%= link_to("Sign Up", signup_path) %>
-      <%= link_to("Log In", login_path) %>
+      <%= link_to("Sign Up", signup_path, :class => "button") %>
+      <%= link_to("Log In", login_path, :class => "button") %>
     <% end %>
-  </div>
-<hr>
+  </header>
 
 <%# Flash messages %>
   <div>

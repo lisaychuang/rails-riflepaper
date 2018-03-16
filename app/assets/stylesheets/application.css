@@ -34,3 +34,73 @@
 span {
     color: grey;
 }
+
+/* Definitions for navigation elements from MiniCSS PWA flavors: https://minicss.org/flavors */
+header {
+    display: block;
+    height: 3rem;
+    background: rgb(254, 238, 232);
+    color: rgb(73, 78, 81);
+    padding: 0.25rem 0.75rem;
+    box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.14), 0 0.0625rem 0.3125rem 0 rgba(0, 0, 0, 0.12), 0 0.1875rem 0.0625rem -0.125rem rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+header button, header [type="button"],
+header a.button, header label.button, header .button,
+header a[role="button"], header label[role="button"], header [role="button"] {
+  background: rgb(254, 238, 232);
+  color: rgb(73, 78, 81);
+  vertical-align: top;
+  margin: 0.125rem 0;
+  box-shadow: none;
+}
+
+header button:hover, header button:focus, header [type="button"]:hover, header [type="button"]:focus,
+header a.button:hover,
+header a.button:focus, header label.button:hover, header label.button:focus, header .button:hover, header .button:focus,
+header a[role="button"]:hover,
+header a[role="button"]:focus, header label[role="button"]:hover, header label[role="button"]:focus, header [role="button"]:hover, header [role="button"]:focus {
+  background: rgb(254, 238, 232);
+}
+
+header .logo, header a.button, header a[role="button"] {
+    text-decoration: none;
+  }
+  
+  header.row {
+    box-sizing: content-box;
+  }
+
+/* Button style from MiniCSS PWA flavors: https://minicss.org/flavors */
+  button {
+    overflow: visible;
+    text-transform: none;
+  }
+  
+  button, [type="button"], [type="submit"], [type="reset"],
+  a.button, label.button, .button,
+  a[role="button"], label[role="button"], [role="button"] {
+    display: inline-block;
+    background: #e0e0e0;
+    color: #212121;
+    border: 0;
+    border-radius: 0.1875rem;
+    padding: 0.625rem 0.875rem;
+    margin: 0.5rem;
+    box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.14), 0 0.0625rem 0.3125rem 0 rgba(0, 0, 0, 0.12), 0 0.1875rem 0.0625rem -0.125rem rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  button:hover, button:focus, [type="button"]:hover, [type="button"]:focus, [type="submit"]:hover, [type="submit"]:focus, [type="reset"]:hover, [type="reset"]:focus,
+  a.button:hover,
+  a.button:focus, label.button:hover, label.button:focus, .button:hover, .button:focus,
+  a[role="button"]:hover,
+  a[role="button"]:focus, label[role="button"]:hover, label[role="button"]:focus, [role="button"]:hover, [role="button"]:focus {
+    background: #e0e0e0;
+    opacity: 1;
+  }
+  
