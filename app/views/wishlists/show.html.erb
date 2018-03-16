@@ -12,3 +12,15 @@
 <%= link_to "delete", [@user, @wishlist], method: :delete,
                                   data: { confirm: "Are you sure?" } %>
 <%end%>
+
+<div class="products-container">
+    <% @wishlist.products.each do |p| %>
+        <div class="product-square">
+            <h4><%= link_to("#{p.name}", product_path(p)) %></h4>
+            <span><%=p.category.name.upcase%></span>
+
+            <p><%= "#{number_to_currency(p.price)}" %></p>
+            <img class="product-image" src="<%=p.image_link%>"><br>
+        </div>
+    <% end %>
+</div>

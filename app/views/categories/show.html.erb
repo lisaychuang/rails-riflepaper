@@ -1,16 +1,20 @@
 <h1>Category: <%= @category.name %></h1>
 
 <div>
-    <div>
-        <% @category.products.each do |product| %>
-            <%= link_to("#{product.name}", product_path(product)) %> - <%=product.category.name%><br>
-            Price: $<%= "#{'%.2f' % product.price }" %><br>
-            <img src="<%=product.image_link%>"><br>
-        <% end %>
-    </div>
+    <%= link_to("Edit category", edit_category_path(@category)) %><br><br>
+
+    <%= link_to "delete", @category, method: :delete,
+                                    data: { confirm: "Are you sure?" } %>
 </div>
 
-<%= link_to("Edit category", edit_category_path(@category)) %><br><br>
+<div class="products-container">
+    <% @category.products.each do |p| %>
+        <div class="product-square">
+            <h4><%= link_to("#{p.name}", product_path(p)) %></h4>
+            <span><%=p.category.name.upcase%></span>
 
-<%= link_to "delete", @category, method: :delete,
-                                  data: { confirm: "Are you sure?" } %>
+            <p><%= "#{number_to_currency(p.price)}" %></p>
+            <img class="product-image" src="<%=p.image_link%>"><br>
+        </div>
+    <% end %>
+</div>

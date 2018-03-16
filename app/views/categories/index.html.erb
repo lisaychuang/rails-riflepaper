@@ -1,14 +1,14 @@
 <h1>Categories</h1>
 
 <div>
-    <% @categories.each do |category| %>
-        <div>
-            <%= link_to("#{category.name}", category_path(category)) %><br>
-            <img src="<%=category.img_url%>"><br>
-        </div>
-    <% end %>
+    <%= link_to("Create a new Category", new_category_path) %>
 </div>
 
-<div>
-    <%= link_to("Create a new Category", new_category_path) %>
+<div class="categories-container">
+    <% @categories.each do |category| %>
+        <div class="category-square">
+            <%= link_to("#{category.name}", category_path(category)) %><br>
+            <img class="category-image" src="<%=category.img_url%>"><br>
+        </div>
+    <% end %>
 </div>

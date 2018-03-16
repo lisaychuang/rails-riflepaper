@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+ .products-container, .categories-container {
+    width: 80%
+}
+
+.product-square, .category-square {
+    float: left;
+    width: 22%;
+    padding: 0 12px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.product-image, .category-image {
+    width: 216px;
+    height: auto;
+}
+
+span {
+    color: grey;
+}
