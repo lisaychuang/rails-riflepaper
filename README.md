@@ -37,7 +37,7 @@ Seed database:
 
 Please note that you will requires an internet connection to seed the database, as the scraper will obtain current product information from Rifle Paper Co's website.
 
-You can view or update scraper method at: `lib/scraper.rb'
+You can view or update scraper method at: `lib/scraper.rb`
 
 ## Contributing Guide
 Conrtibutions are welcomed! 
