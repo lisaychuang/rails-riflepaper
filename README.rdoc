@@ -1,28 +1,49 @@
-== README
+#Rails Rifle Paper wishlist app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An app to view all products available for sale on [Rifle Paper Co](https://riflepaperco.com/shop/).
 
-Things you may want to cover:
+##Features
 
-* Ruby version
+### Sorting 
+Users can sort all products by name, price, categories, and view a list of products that qualify for Free Shipping (> $50).
 
-* System dependencies
+### Wishlist
+Users can create multiple wishlists and add products to them!
 
-* Configuration
+### Third-party sign-up and login
 
-* Database creation
+Users can sign-up and login via Facebook.
 
-* Database initialization
+##Supported Versions
+- Ruby 2.0.0, 2.1.x, 2.2.x, 2.3.x
+- Rails 4.2.x
+- SQLite3 1.3.x
 
-* How to run the test suite
+##Installation
 
-* Services (job queues, cache servers, search engines, etc.)
+Fork and clone repo: 
+` https://github.com/lisaychuang/rails-riflepaper `
+ 
+Install all gem dependencies:
 
-* Deployment instructions
+` bundle install `
 
-* ...
+Create database scheme with migrations:
+` rake db:migrate `
 
+Seed database:
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+` rake db:seed ` 
+
+Please note that you will requires an internet connection to seed the database, as the scraper will obtain current product information from Rifle Paper Co's website.
+
+You can view or update scraper method at: `lib/scraper.rb'
+
+## Contributing Guide
+Conrtibutions are welcomed! 
+
+Fork, fix, then send a pull request.
+
+## Copyright
+
+Copyright (c) 2018- Lisa Huang-North. See MIT-LICENSE for further details.
