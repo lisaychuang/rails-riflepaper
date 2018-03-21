@@ -9,4 +9,6 @@
 
 <% end %>
 
+<% if ENV['FACEBOOK_KEY'] %>
 <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+<% end %>

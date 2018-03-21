@@ -26,3 +26,7 @@
   <%= f.submit "Sign up" %>
 
 <% end %>
+
+<% if ENV['FACEBOOK_KEY'] %>
+<%= link_to('Sign up with Facebook!', '/auth/facebook') %>
+<% end %>
