@@ -37,6 +37,7 @@ Seed database:
 ` rake db:seed ` 
 
 Start local server:
+
 ` rails s `
 
 Please note that you will requires an internet connection to seed the database, as the scraper will obtain current product information from Rifle Paper Co's website.
