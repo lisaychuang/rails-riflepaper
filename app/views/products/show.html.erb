@@ -1,7 +1,7 @@
 <h1><%= @product.name%></h1>
 
 <p>Category: <%= @product.category.name%></p>
-<p>Price: <%= @product.price%></p>
+<p>Price: <%= "#{number_to_currency(@product.price)}" %></p>
 <img src="<%=@product.image_link%>"><br>
 
 

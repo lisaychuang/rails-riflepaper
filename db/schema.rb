@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20180315035447) do
 
   create_table "wishlists", force: :cascade do |t|
     t.string   "name"
-    t.date     "date_created", default: '2018-03-14'
+    t.date     "date_created", default: '2018-08-07'
     t.integer  "user_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
