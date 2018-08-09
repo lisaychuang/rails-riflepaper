@@ -12,7 +12,18 @@ Users can create multiple wishlists and add products to them!
 
 ### Third-party sign-up and login
 
-Users can sign-up and login via Facebook.
+Users can sign-up and login via Facebook.  To turn on this feature, follow these steps:
+1. Log in to the [Facebook developer site](https://developers.facebook.com/) and add a new app to obtain your Facebook developer `AppID` and `App Secret`.
+2. Create a `.env` file in the root of your application
+3. Add your Facebook developer credentials in your `.env` file:
+
+```js
+// .env
+FACEBOOK_KEY={add your appID here}
+FACEBOOK_SECRET={{add your app secret here}}
+``` 
+
+Restart your app, you should now see the **Sign up with Facebook!** link in your signup page.
 
 ## 💻Supported Versions
 - Ruby 2.0.0, 2.1.x, 2.2.x, 2.3.x
