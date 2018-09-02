@@ -1,5 +1,10 @@
+require './lib/scraper'
+
 class SessionsController < ApplicationController
     def welcome
+        scraper = Scraper.new
+        @hero_img = scraper.get_hero_img
+
         render 'welcome'
     end
 

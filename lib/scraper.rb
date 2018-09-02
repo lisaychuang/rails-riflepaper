@@ -10,6 +10,12 @@ class Scraper
     doc
   end
 
+  def get_hero_img
+    doc = self.get_page("https://riflepaperco.com/")
+    hero_img_container = doc.css('#hero-feature-one figure img.photo')
+    hero_img_container[0].attributes['data-src'].value
+  end
+
   def get_categories
     doc = self.get_page("https://riflepaperco.com/shop/")
     categories = doc.css('ol#products-container li.product')
