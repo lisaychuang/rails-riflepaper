@@ -27,7 +27,11 @@ class WishlistsController < ApplicationController
   def show
     @user = User.find_by(id: params[:user_id])
     @wishlist = Wishlist.find_by(id: params[:id])
-    render json: @wishlist
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @wishlist, status: 200}
+    end
   end
 
   def edit
