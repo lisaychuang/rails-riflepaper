@@ -18,7 +18,8 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.new(wishlist_params)
     @wishlist.user = @user
     if @wishlist.save
-      redirect_to user_wishlist_path(@user, @wishlist)
+      # redirect_to user_wishlist_path(@user, @wishlist)
+      render json: @wishlist, status: 201
     else
       render 'new'
     end

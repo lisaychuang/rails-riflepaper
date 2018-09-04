@@ -16,7 +16,10 @@ Association data is defined in serializer files, the relationship is rendered on
 - A `Wishlist` has_many `products`
 - A `Product` belongs_to a `wishlist`
 
-- [ ] Use your Rails API and a form to create a resource and render the response without a page refresh.
+- [X] Use your Rails API and a form to create a resource and render the response without a page refresh.
+
+Users can create a new `wishlist` and render it without a page refresh. This was achieved by hooking up an event listener to the `submit` event of the `Wishlist` new form, serializing form data, and submitting the data via **AJAX POST** request. The response is rendered on the page using jQuery.
+
 - [ ] Translate JSON responses into Javascript Model Objects.
 - [ ] At least one of the Javascript Model Objects must have at least one method added by your code to the prototype.
 

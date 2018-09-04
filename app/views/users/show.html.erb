@@ -10,4 +10,5 @@ Email:  <%= @user.email  %><br><br>
                                   data: { confirm: "Are you sure?" } %>
 <%end%>
 
+<br>
 <%= link_to("See #{@user.name} 's wishlists", user_wishlists_path(@user)) %><br><br>
