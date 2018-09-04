@@ -10,7 +10,12 @@ On `product` show page, users can click on the <kbd>Next Product</kbd> button to
 
 On `wishlist` show page, users can click on the <kbd>Show Products</kbd> button to fetch the list of products that belong to the wishlist via an **AJAX GET** request. Data is retrieved in JSON format, and then appended to the page using jQuery.
 
-- [ ] Include at least one `has_many` relationship in information rendered via JSON and appended to the DOM.
+- [X] Include at least one `has_many` relationship in information rendered via JSON and appended to the DOM.
+
+Association data is defined in serializer files, the relationship is rendered on each wishlist's show page. 
+- A `Wishlist` has_many `products`
+- A `Product` belongs_to a `wishlist`
+
 - [ ] Use your Rails API and a form to create a resource and render the response without a page refresh.
 - [ ] Translate JSON responses into Javascript Model Objects.
 - [ ] At least one of the Javascript Model Objects must have at least one method added by your code to the prototype.
