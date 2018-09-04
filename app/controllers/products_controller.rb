@@ -30,7 +30,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find_by(id: params[:id])
-    render json: @product
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @product, status: 200}
+    end
   end
 
   def edit

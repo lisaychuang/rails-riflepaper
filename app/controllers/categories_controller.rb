@@ -20,7 +20,10 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find_by(id: params[:id])
-    render json: @category, status: 200
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @category, status: 200}
+    end
   end
 
   def edit
