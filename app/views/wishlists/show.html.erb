@@ -38,9 +38,11 @@ $(function() {
     const wishlistId = $(this).data("wid");
     $.get("/users/" + userId + "/wishlists/"+ wishlistId + ".json", function(data) {
         let string = data.products.map(p => {
+            debugger;
             return `
             <div class="product-square">
                 <h4>${p.name}</h4>
+                <p>$ ${(p.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</p>
                 <img class="product-image" src="${p.image_link}"><br>
             </div>`
         }).join(' ');
