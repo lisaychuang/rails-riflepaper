@@ -3,11 +3,11 @@
 Name:  <%= @user.name  %><br>
 Email:  <%= @user.email  %><br><br>
 
-<%= link_to("See #{@user.name} 's wishlists", user_wishlists_path(@user)) %><br><br>
-
 <% if display_edit_delete_link %>
 <%= link_to("Edit user", edit_user_path(@user)) %><br><br>
 
 <%= link_to "Delete user account", @user, method: :delete,
                                   data: { confirm: "Are you sure?" } %>
 <%end%>
+
+<%= link_to("See #{@user.name} 's wishlists", user_wishlists_path(@user)) %><br><br>
