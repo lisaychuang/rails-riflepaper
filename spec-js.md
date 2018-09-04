@@ -1,8 +1,11 @@
 # Specifications for the Rails with jQuery Assessment
 
 Specs:
-- [ ] Use jQuery for implementing new requirements
-- [ ] Include a `show` resource rendered using jQuery and an Active Model Serialization JSON backend.
+- [X] Use jQuery for implementing new requirements
+- [X] Include a `show` resource rendered using jQuery and an Active Model Serialization JSON backend.
+
+On `wishlist` show page, users can click on the <kbd>Show Products</kbd> button to fetch the list of products that belong to the wishlist via an **AJAX GET** request. Data is retried in JSON format, and then appended to the page using jQuery.
+
 - [ ] Include an `index` resource rendered using jQuery and an Active Model Serialization JSON backend.
 - [ ] Include at least one `has_many` relationship in information rendered via JSON and appended to the DOM.
 - [ ] Use your Rails API and a form to create a resource and render the response without a page refresh.

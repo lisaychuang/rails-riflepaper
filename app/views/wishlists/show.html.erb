@@ -13,7 +13,13 @@
                                   data: { confirm: "Are you sure?" } %>
 <%end%>
 
-<div class="products-container">
+<br>
+<button class="js-more" data-uid="<%= @user.id %>" data-wid="<%= @wishlist.id %>">Show products</button>
+
+<div id="products-container">
+</div>
+
+<!--
     <% @wishlist.products.each do |p| %>
         <div class="product-square">
             <h4><%= link_to("#{p.name}", product_path(p)) %></h4>
@@ -23,4 +29,23 @@
             <img class="product-image" src="<%=p.image_link%>"><br>
         </div>
     <% end %>
-</div>
+-->
+
+<script type="text/javascript" charset="utf-8">
+$(function() {
+  $(".js-more").on("click", function() {
+    const userId = $(this).data("uid");
+    const wishlistId = $(this).data("wid");
+    $.get("/users/" + userId + "/wishlists/"+ wishlistId + ".json", function(data) {
+        let string = data.products.map(p => {
+            return `
+            <div class="product-square">
+                <h4>${p.name}</h4>
+                <img class="product-image" src="${p.image_link}"><br>
+            </div>`
+        }).join(' ');
+        $("#products-container").html(string);
+    });
+  });
+});
+</script>
