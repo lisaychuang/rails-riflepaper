@@ -1,11 +1,35 @@
-<h1><%= @product.name%></h1>
+<button class="js-next" data-id="<%= @product.id %>">Next product</button>
+<br>
 
-<p>Category: <%= @product.category.name%></p>
-<p>Price: <%= "#{number_to_currency(@product.price)}" %></p>
-<img src="<%=@product.image_link%>"><br>
+<h1 class="name"><%= @product.name%></h1>
+
+<p class="category">Category: <%= @product.category.name%></p>
+<p class="price">Price: <%= "#{number_to_currency(@product.price)}" %></p>
+<img class="image" src="<%=@product.image_link%>"><br>
 
 
 <%= link_to("Edit product", edit_product_path(@product)) %><br><br>
 
 <%= link_to "delete", @product, method: :delete,
                                   data: { confirm: "Are you sure?" } %>
+
+<!-- JS script for Next Product button -->
+
+<script type="text/javascript" charset="utf-8">
+$(() => {
+  $(".js-next").on("click", function() {
+    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.getJSON("/products/" + nextId + ".json", function(data) {
+      $(".name").text(data["name"]);
+      $(".category").text("Category: " + data["category"]["name"]);
+
+      // format price with Regex
+      $(".price").text("Price: $" + (data["price"]).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
+      $(".image").attr('src', data["image_link"]);
+
+      // re-set the id to current product
+      $(".js-next").attr("data-id", data["id"]);
+    });
+  });
+});
+</script>
