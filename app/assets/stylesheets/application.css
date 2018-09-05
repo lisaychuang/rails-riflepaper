@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+ 
+ body {
+  font-family: 'Noto Serif', serif;
+ }
 
  .products-container, .categories-container {
     width: 80%
