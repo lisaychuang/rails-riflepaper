@@ -19,6 +19,7 @@
   <p id="wishlist-notes"></p>
 </div>
 
+<!--
 <script type="text/javascript" charset="utf-8">
   $(function () {
     $('form').submit(function (event) {
@@ -26,7 +27,6 @@
       event.preventDefault();
  
       let values = $(this).serialize();
- 
       let posting = $.post('/users/3/wishlists', values);
  
       posting.done(function (data) {

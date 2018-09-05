@@ -20,8 +20,10 @@ Association data is defined in serializer files, the relationship is rendered on
 
 Users can create a new `wishlist` and render it without a page refresh. This was achieved by hooking up an event listener to the `submit` event of the `Wishlist` new form, serializing form data, and submitting the data via **AJAX POST** request. The response is rendered on the page using jQuery.
 
-- [ ] Translate JSON responses into Javascript Model Objects.
-- [ ] At least one of the Javascript Model Objects must have at least one method added by your code to the prototype.
+- [X] Translate JSON responses into Javascript Model Objects.
+- [X] At least one of the Javascript Model Objects must have at least one method added by your code to the prototype.
+
+In `wishlist.js` file, JSON response from the `Create Wishlist` form is translated into a JS Model Object. On the `Wishlist` prototype, there is a `updateHTML` method which will render the object's properties on the page using jQuery.  
 
 Confirm
 - [ ] You have a large number of small Git commits
