@@ -26,7 +26,8 @@ Users can create a new `wishlist` and render it without a page refresh. This was
 In `wishlist.js` file, JSON response from the `Create Wishlist` form is translated into a JS Model Object. On the `Wishlist` prototype, there is a `updateHTML` method which will render the object's properties on the page using jQuery.  
 
 Confirm
-- [ ] You have a large number of small Git commits
-- [ ] Your commit messages are meaningful
-- [ ] You made the changes in a commit that relate to the commit message
-- [ ] You don't include changes in a commit that aren't related to the commit message
+- [X] You have a large number of small Git commits
+The jQuery Front End part of this project is in the jQuery branch with 18 commits so far.
+- [X] Your commit messages are meaningful
+- [X] You made the changes in a commit that relate to the commit message
+- [X] You don't include changes in a commit that aren't related to the commit message
