@@ -29,10 +29,14 @@ A submit button that will pass the selected Wishlist_id into URL query params --
         <select name="wishlist_id" id="wishlist_id">
 
             <!-- Select a Wishlist -->
-            <option value="" <%= !@wishlist ? "selected" : "" %>>SELECT A WISHLIST</option>
+            <!--<option value="" <%= !@wishlist ? "selected" : "" %>>SELECT A WISHLIST</option>-->
+            <option value="<%= @wishlist ? @wishlist.id : "" %>">
+                <%= !@wishlist ? "SELECT A WISHLIST" : "Selected: #{@wishlist.name}" %>
+            </option>
 
             <% @user_wishlists.each do |w| %>
-                <option value="<%=w.id %>" <%= "#{w.id}" === @wishlist ? "selected" : "" %>><%=w.name%></option>
+            <!-- <option value="<%=w.id %>" <%= "#{w.id}" === @wishlist ? "selected" : "" %>><%=w.name%></option> -->
+                <option value="<%=w.id %>"><%=w.name%></option>
             <% end %>
         </select>
 
@@ -52,7 +56,7 @@ A submit button that will pass the selected Wishlist_id into URL query params --
                 <%= hidden_field_tag :product_id, p.id %> 
                 
                 <!-- Button: Add or Remove item from list -->
-                <%= button_tag(@wishlist.has_product?(p)? "Remove from wishlist" : "Add to wishlist")%>
+                <%= button_tag( @wishlist.has_product?(p) ? "Remove from wishlist" : "Add to wishlist")%>
             <% end %>
         <% end %>
         
