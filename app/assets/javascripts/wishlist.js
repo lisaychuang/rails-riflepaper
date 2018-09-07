@@ -3,20 +3,22 @@
 
 (function() {
   "use strict";
-  // Wishlist prototype
+  // Wishlist class constructor
   // {id: 41, name: "qwdq", notes: "wq", budget: 0, products: []}
-  function Wishlist(json) {
-    this.data = json;
-  }
+  class Wishlist {
+    constructor(json) {
+      this.data = json;
+    }
 
-  Wishlist.prototype = {};
-  Wishlist.prototype.updateHTML = function() {
-    $("#wishlist-name").text(this.data.name);
-    $("#wishlist-budget").text(
-      "Budget: $" + this.data.budget.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")
-    );
-    $("#wishlist-notes").text("Notes: " + this.data.notes);
-  };
+    // wishlist class instance method
+    updateHTML() {
+      $("#wishlist-name").text(this.data.name);
+      $("#wishlist-budget").text(
+        "Budget: $" + this.data.budget.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")
+      );
+      $("#wishlist-notes").text("Notes: " + this.data.notes);
+    };
+  }
 
   function createWishlist(url, data) {
     $.post(url, data, "json")
