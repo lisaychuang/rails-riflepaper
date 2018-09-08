@@ -17,3 +17,10 @@
 <h1>Create a new wishlist</h1>
 
 <%= render partial: "form", locals: {user: @user, wishlist: @wishlist} %>
+
+<script>
+    //   Create a new wishlist onSubmit event listener
+  $(function() {
+    setupCreateWishlist();
+  });
+</script>

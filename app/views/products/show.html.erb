@@ -16,7 +16,7 @@
 <!-- JS script for Next Product button -->
 
 <script type="text/javascript" charset="utf-8">
-$(() => {
+$(function () {
   $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.getJSON("/products/" + nextId + ".json", function(data) {
