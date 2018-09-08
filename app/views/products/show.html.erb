@@ -1,17 +1,20 @@
+<!-- Button to show Next Product using AJAX GET request-->
 <button class="js-next" data-id="<%= @product.id %>">Next product</button>
 <br>
 
-<h1 class="name"><%= @product.name%></h1>
+<!-- Product square -->
+<div class="product-square">
+  <h1 class="name"><%= @product.name%></h1>
 
-<p class="category">Category: <%= @product.category.name%></p>
-<p class="price">Price: <%= "#{number_to_currency(@product.price)}" %></p>
-<img class="image" src="<%=@product.image_link%>"><br>
+  <p class="category">Category: <%= @product.category.name%></p>
+  <p class="price">Price: <%= "#{number_to_currency(@product.price)}" %></p>
+  <img class="image" src="<%=@product.image_link%>"><br>
 
+  <%= link_to("Edit product", edit_product_path(@product)) %><br><br>
 
-<%= link_to("Edit product", edit_product_path(@product)) %><br><br>
-
-<%= link_to "delete", @product, method: :delete,
-                                  data: { confirm: "Are you sure?" } %>
+  <%= link_to "delete", @product, method: :delete,
+                                    data: { confirm: "Are you sure?" } %>
+</div>
 
 <!-- JS script for Next Product button -->
 
