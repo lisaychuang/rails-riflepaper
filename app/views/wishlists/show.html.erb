@@ -1,21 +1,23 @@
-<h1>Wishlist: <%= @wishlist.name%></h1>
+<!-- Wishlist square -->
+<div class="wishlist-info">
+    <h1>Wishlist: <%= @wishlist.name%></h1>
 
-<p>Created on: <%= @wishlist.date_created%></p>
+    <p>Created on: <%= @wishlist.date_created%></p>
+    <p>Budget: <%= number_to_currency(@wishlist.budget)%></p>
+    <p>Notes: <%= @wishlist.notes%></p>
 
-<p>Budget: <%= number_to_currency(@wishlist.budget)%></p>
+    <% if display_edit_delete_link %>
+    <%= link_to("Edit wishlist", edit_user_wishlist_path(@user, @wishlist)) %><br><br>
 
-<p>Notes: <%= @wishlist.notes%></p>
+    <%= link_to "delete", [@user, @wishlist], method: :delete,
+                                    data: { confirm: "Are you sure?" } %>
+    <%end%>
+</div>
 
-<% if display_edit_delete_link %>
-<%= link_to("Edit wishlist", edit_user_wishlist_path(@user, @wishlist)) %><br><br>
+<!-- Button to Show Products using AJAX GET request-->
+<button class="js-more" data-uid="<%= @user.id %>" data-wid="<%= @wishlist.id %>">Show Products</button>
 
-<%= link_to "delete", [@user, @wishlist], method: :delete,
-                                  data: { confirm: "Are you sure?" } %>
-<%end%>
-
-<br>
-<button class="js-more" data-uid="<%= @user.id %>" data-wid="<%= @wishlist.id %>">Show products</button>
-
+<!-- Container to render product information  -->
 <div id="products-container">
 </div>
 
@@ -31,6 +33,7 @@
     <% end %>
 -->
 
+<!-- JS script for Show Products button -->
 <script type="text/javascript" charset="utf-8">
 $(function() {
   $(".js-more").on("click", function() {
@@ -38,13 +41,12 @@ $(function() {
     const wishlistId = $(this).data("wid");
     $.get("/users/" + userId + "/wishlists/"+ wishlistId + ".json", function(data) {
         let string = data.products.map(p => {
-            debugger;
             return `
-            <div class="product-square">
-                <h4>${p.name}</h4>
-                <p>$ ${(p.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</p>
-                <img class="product-image" src="${p.image_link}"><br>
-            </div>`
+                <div class="product-square">
+                    <h4>${p.name}</h4>
+                    <p>$ ${(p.price).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</p>
+                    <img class="product-image" src="${p.image_link}"><br>
+                </div>`
         }).join(' ');
         $("#products-container").html(string);
     });
