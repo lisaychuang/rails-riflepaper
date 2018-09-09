@@ -1,3 +1,4 @@
+<!-- Form for creating a new Wishlist -->
 <%= form_for([user, wishlist]) do |f|%>
 <p>
   <%= f.label :name %>
@@ -13,29 +14,9 @@
   <%= f.submit %>
 <% end %>
 
+<!-- New wishlist container to render wishlist's information -->
 <div id="new-wishlist">
   <h2 id="wishlist-name"></h2>
   <p id="wishlist-budget"></p>
   <p id="wishlist-notes"></p>
 </div>
-
-<!--
-<script type="text/javascript" charset="utf-8">
-  $(function () {
-    $('form').submit(function (event) {
-      //prevent form from submitting the default way
-      event.preventDefault();
- 
-      let values = $(this).serialize();
-      let posting = $.post('/users/3/wishlists', values);
- 
-      posting.done(function (data) {
-        let wishlist = data;
-        $("#wishlist-name").text(wishlist["name"]);
-        $("#wishlist-budget").text("Budget: $" + (wishlist["budget"]).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'));
-        $("#wishlist-notes").text("Notes: " + wishlist["notes"]);
-      });
-    });
-  });
-</script>
--->
