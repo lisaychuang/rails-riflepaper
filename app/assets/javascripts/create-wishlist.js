@@ -33,7 +33,6 @@ class Wishlist {
 
 function setupCreateWishlist() {
   $("form").submit(function(event) {
-    debugger;
     event.preventDefault();
     // Get values from form
     let values = $(this).serialize();
