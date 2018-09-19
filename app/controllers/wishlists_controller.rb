@@ -53,7 +53,7 @@ class WishlistsController < ApplicationController
   def destroy
     Wishlist.find(params[:id]).destroy
     flash[:success] = "Wishlist deleted"
-    redirect_to user_wishlists(@current_user)
+    redirect_to user_wishlists_path(@current_user)
   end
 
   def toggle_product
