@@ -4,6 +4,8 @@
     <%= link_to("Create a new Category", new_category_path) %>
 </div>
 
+<button class="js-order">Sort by A-Z</button>
+
 <div class="categories-container">
     <% @categories.each do |category| %>
         <div class="category-square">
@@ -12,3 +14,10 @@
         </div>
     <% end %>
 </div>
+
+<!-- onClick event listener to Sort Categories -->
+<script type="text/javascript" charset="utf-8">
+  $( ".js-order" ).click(function() {
+    sortCategories();
+  });
+</script>

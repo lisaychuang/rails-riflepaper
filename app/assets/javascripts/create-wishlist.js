@@ -17,17 +17,20 @@ function createWishlist(url, data) {
 // {id: 41, name: "qwdq", notes: "wq", budget: 0, products: []}
 class Wishlist {
   constructor(json) {
-    this.data = json;
+    this.name = json.name;
+    this.notes = json.notes;
+    this.budget = json.budget;
+    this.products = json.products;
   }
 
   // wishlist class instance method
   updateHTML() {
-    $("#wishlist-name").text(this.data.name);
+    $("#wishlist-name").text(this.name);
     $("#wishlist-budget").text(
       "Budget: $" +
-        this.data.budget.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")
+        this.budget.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")
     );
-    $("#wishlist-notes").text("Notes: " + this.data.notes);
+    $("#wishlist-notes").text("Notes: " + this.notes);
   }
 }
 
